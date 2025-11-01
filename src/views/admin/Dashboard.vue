@@ -63,7 +63,7 @@
           <div class="flex items-center justify-between">
             <div>
               <div class="text-sm font-medium text-gray-600 dark:text-gray-400">Avg Score</div>
-              <div class="text-2xl font-bold text-light-text dark:text-dark-text">{{ stats.games?.avg_score?.toFixed(0) || 0 }}</div>
+              <div class="text-2xl font-bold text-light-text dark:text-dark-text">{{ formatScore(stats.games?.avg_score) }}</div>
               <div class="text-xs text-gray-500 mt-1">{{ stats.users?.admins || 0 }} admins</div>
             </div>
             <div class="h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
@@ -154,5 +154,11 @@ const loadStats = async () => {
   } finally {
     statsLoading.value = false
   }
+}
+
+const formatScore = (score) => {
+  if (!score) return 0
+  const numScore = typeof score === 'string' ? parseFloat(score) : score
+  return Math.round(numScore)
 }
 </script>
