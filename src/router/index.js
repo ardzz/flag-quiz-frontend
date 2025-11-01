@@ -55,10 +55,32 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/admin',
+    path: '/admin/dashboard',
     name: 'AdminDashboard',
     component: () => import('@/views/admin/Dashboard.vue'),
     meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/admin/users',
+    name: 'AdminUsers',
+    component: () => import('@/views/admin/Users.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/admin/countries',
+    name: 'AdminCountries',
+    component: () => import('@/views/admin/Countries.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/admin/audit-logs',
+    name: 'AdminAuditLogs',
+    component: () => import('@/views/admin/AuditLogs.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/admin',
+    redirect: '/admin/dashboard'
   },
   {
     path: '/:pathMatch(.*)*',
