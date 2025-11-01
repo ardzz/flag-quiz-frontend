@@ -33,7 +33,7 @@ export const adminService = {
   },
 
   async getCountries(params = {}) {
-    return await api.get('/admin/countries', { params })
+    return await api.get('/countries', { params })
   },
 
   // Audit Logs
